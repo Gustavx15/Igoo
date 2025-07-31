@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Girlfriend Days</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Base Styles */
+        :root {
+            --primary-color: #ff6b98;
+            --secondary-color: #ffb8c6;
+            --accent-color: #fff44f;
+            --dark-color: #333;
+            --light-color: #fff9f9;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body.night-mode {
+            background-color: #1a1a2e;
+            color: #f1f1f1;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            z-index: 10;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        .nav-container {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+        }
+
+        body.night-mode .nav-container {
+            background: rgba(26, 26, 46, 0.9);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        body.night-mode .logo {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        body.night-mode .nav-links a {
+            color: #f1f1f1;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8d09f272-fa5f-4da3-a6f0-379ea6749f33.png') no-repeat center center;
+            background-size: cover;
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 107, 152, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 152, 0.6);
+            background-color: #ff5591;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 5rem 5%;
+            background-color: white;
+        }
+
+        body.night-mode .gallery {
+            background-color: #1a1a2e;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        body.night-mode .section-title {
+            color: var(--secondary-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            aspect-ratio: 1/1;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Messages Section */
+        .messages {
+            padding: 5rem 5%;
+            background-color: var(--light-color);
+            text-align: center;
+        }
+
+        body.night-mode .messages {
+            background-color: #16213e;
+        }
+
+        .message-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        body.night-mode .message-container {
+            background-color: #1a1a2e;
+        }
+
+        .typed-text {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 30px;
+            background-color: var(--primary-color);
+            margin-left: 4px;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Timeline Section */
+        .timeline {
+            padding: 5rem 5%;
+            position: relative;
+            background-color: white;
+        }
+
+        body.night-mode .timeline {
+            background-color: #1a1a2e;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background-color: var(--secondary-color);
+        }
+
+        .timeline-item {
+            padding: 20px 50px;
+            position: relative;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: var(--transition);
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: auto;
+        }
+
+        .timeline-content {
+            padding: 2rem;
+            background-color: var(--light-color);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        body.night-mode .timeline-content {
+            background-color: #16213e;
+        }
+
+        .timeline-date {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            top: 30px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -10px;
+        }
+
+        /* Countdown Section */
+        .countdown {
+            padding: 5rem 5%;
+            text-align: center;
+            background-color: var(--light-color);
+        }
+
+        body.night-mode .countdown {
+            background-color: #16213e;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .countdown-box {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            min-width: 120px;
+        }
+
+        body.night-mode .countdown-box {
+            background-color: #1a1a2e;
+        }
+
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .countdown-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: var(--dark-color);
+            margin-top: 0.5rem;
+        }
+
+        body.night-mode .countdown-label {
+            color: #f1f1f1;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 5%;
+            background-color: white;
+        }
+
+        body.night-mode .testimonials {
+            background-color: #1a1a2e;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            padding: 2rem;
+            background-color: var(--light-color);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        body.night-mode .testimonial-card {
+            background-color: #16213e;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Surprise Button */
+        .surprise-section {
+            padding: 5rem 5%;
+            text-align: center;
+            background-color: var(--light-color);
+        }
+
+        body.night-mode .surprise-section {
+            background-color: #16213e;
+        }
+
+        .surprise-btn {
+            font-size: 1.5rem;
+            padding: 1rem 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        body.night-mode footer {
+            background-color: #16213e;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Heart Animation */
+        .heart {
+            position: fixed;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            z-index: 9999;
+        }
+
+        /* Floating Hearts */
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .heart {
+            position: absolute;
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-color);
+            transform: rotate(45deg);
+            animation: float 5s linear infinite;
+            opacity: 0.7;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart:after {
+            top: 0;
+            left: -10px;
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+        }
+
+        .music-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Mode Toggle */
+        .mode-toggle {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 100;
+        }
+
+        .toggle-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--dark-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        body.night-mode .toggle-btn {
+            background-color: white;
+            color: var(--dark-color);
+        }
+
+        .toggle-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                padding: 10px;
+            }
+
+            .hamburger span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background: var(--primary-color);
+                transition: var(--transition);
+            }
+
+            body.night-mode .hamburger span {
+                background: var(--secondary-color);
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: rgba(255,255,255,0.98);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                z-index: 99;
+            }
+
+            body.night-mode .nav-links {
+                background-color: rgba(26,26,46,0.98);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1rem 0;
+            }
+
+            .nav-links a {
+                font-size: 1.5rem;
+                padding: 1rem;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1.5rem 0;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 15px;
+            }
+
+            .timeline-content {
+                padding: 1.5rem;
+            }
+
+            .timeline-item:nth-child(even) {
+                margin-left: 0;
+            }
+
+            .timeline-item::before {
+                left: 20px;
+            }
+
+            .countdown-container {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="hearts-container"></div>
+
+    <!-- Navigation -->
+    <div class="nav-container">
+        <nav>
+            <div class="logo">Happy GF Days</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#messages">Messages</a></li>
+                <li><a href="#timeline">Timeline</a></li>
+                <li><a href="#countdown">Countdown</a></li>
+                <li><a href="#testimonials">Sweet Words</a></li>
+            </ul>
+            <div class="hamburger">☰</div>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h2>Happy Girlfriend Days Sayang</h2>
+            <p>Every day with you is a beautiful chapter in our love story</p>
+            <a href="#messages" class="btn">Read My Heart</a>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <h2 class="section-title">Album Cewenya Aku</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img class="gallery-img" src="foto1.jpg" alt="Couple standing on a beach at sunset, holding hands with waves gently lapping at their feet">
+                <div class="gallery-caption"></div>
+            </div>
+            <div class="gallery-item">
+                <img class="gallery-img" src="foto2.jpg" alt="Couple laughing together at a cozy cafe with warm lights and coffee cups on the table">
+                <div class="gallery-caption"></div>
+            </div>
+            <div class="gallery-item">
+                <img class="gallery-img" src="foto3.jpg" alt="Couple silhouette hugging in front of a city skyline during golden hour">
+                <div class="gallery-caption"></div>
+            </div>
+            <div class="gallery-item">
+                <img class="gallery-img" src="foto4.jpg" alt="Couple dressed up for a special occasion, smiling with champagne glasses">
+                <div class="gallery-caption"></div>
+            </div>
+            <div class="gallery-item">
+                <img class="gallery-img" src="foto5.jpg" alt="Couple wearing casual outfits walking through autumn leaves in a park">
+                <div class="gallery-caption"></div>
+            </div>
+            <div class="gallery-item">
+                <img class="gallery-img" src="foto6.jpg" alt="Close-up of couple's hands intertwined with matching bracelets">
+                <div class="gallery-caption"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Messages Section -->
+    <section class="messages" id="messages">
+        <h2 class="section-title">From My Heart to Yours</h2>
+        <div class="message-container">
+            <div class="typed-text" id="typed-text"></div>
+            <div class="cursor" id="cursor"></div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline" id="timeline">
+        <h2 class="section-title">Khayalan Ku</h2>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">First Time Ketemu</div>
+                    <p>Nanti pertama kali ketmu kamu ntah di bromo atau di jakarta, intinya ketemu kamu.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">First Date</div>
+                    <p>Nanti pas udah ketemu aku ajak keliling buat ngobatin rasa kangen aku ke kamu pas lagi LDR wkwk.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Waktu Berdua Sama Kamu"</div>
+                    <p>Ntar pas udah ketemu aku mau ngabisin waktu berdua sama kamu, ntah saling tukar cerita atau ngelakuin hal-hal yang seru.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Ketemu Papah Kamu</div>
+                    <p>Ngga lupa juga dong aku harus ketemu sama papah kamu buat minta ijin seriusin anaknya wkwk.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Lamaran</div>
+                    <p>Disaat ini aku mau mengikat kamu dengan cara melamar kamu.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">Akhir Cerita, Awal Kehidupan Baru</div>
+                    <p>Moment yang aku tunggu-tunggu yaitu nikah sama kamu hehe, bisa ketemu tiap hari tanpa adanya hambatan waktu maupun jarak.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="countdown" id="countdown">
+        <h2 class="section-title">Tebak Hitung Mundur Apa</h2>
+        <div class="countdown-container">
+            <div class="countdown-box">
+                <div class="countdown-number" id="days">00</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-box">
+                <div class="countdown-number" id="hours">00</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-box">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-box">
+                <div class="countdown-number" id="seconds">00</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <h2 class="section-title">Reasons I Love You</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Senyum kamu yang buat aku meleleh tiap harinya, gatau kenapa aku ngerasa kaya indah banget ssenyuman kamu tuh sayang."</p>
+                <p class="testimonial-author">- Senyumanmu</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Banyak banget hal random dari kamu tuh yang buat aku gemes sendiri ngeliatnya, kaya lucu aja gitu hehee."</p>
+                <p class="testimonial-author">- Kerandoman Kamu</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Apalagi tawa kamu yang ceria itu, tapi aku mohon jangan ketawa sama cowo lain ya sayang huhu, khsusus buat aku doang."</p>
+                <p class="testimonial-author">- Tertawamu</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Terimakasih sudah mau nerima aku ya sayang, aku ga bakal sia-sia in rasa cinta dan kepercayaan yang udah kamu kasih ke aku."</p>
+                <p class="testimonial-author">-Rasa Cinta Kamu</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Aku tuh suka heran kenapa ya kamu kok lucu banget?."</p>
+                <p class="testimonial-author">- Cewe Aku Lucu</p>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Dan juga kamu kalau ada apa-apa cerita ya sama aku, aku tau kamu cewek kuat, tapi kan ada aku sayang yang bakal jadi suport system kamu."</p>
+                <p class="testimonial-author">- Cewe Aku Kuat</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Surprise Section -->
+    <section class="surprise-section">
+        <button class="btn surprise-btn" id="surprise-btn">Click for a Sweet Surprise</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Happy Girlfriend Days</h3>
+            <p>Every moment with you is a treasure I cherish</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#messages">Messages</a>
+                <a href="#timeline">Timeline</a>
+            </div>
+            <p class="copyright">Made with love for the most amazing girlfriend in the world © 2025</p>
+        </div>
+    </footer>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <button class="music-btn" id="music-btn">♪</button>
+        <audio id="bg-music" loop>
+            <source src="lagu1.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- Mode Toggle -->
+    <div class="mode-toggle">
+        <button class="toggle-btn" id="mode-toggle">☀️</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                navLinks.classList.remove('active');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Typing Effect for Messages
+        const messages = [
+            "My dearest love,",
+            "From the moment we met, I knew there was something special about you...",
+            "Your smile brightens my darkest days,",
+            "Your laugh is my favorite melody,",
+            "And your love is my greatest treasure.",
+            "Every moment with you feels like a beautiful dream I never want to wake from.",
+            "You've shown me what true happiness means,",
+            "And taught me the depth of love I didn't know was possible.",
+            "No matter where life takes us,",
+            "I promise to stand by your side,",
+            "Cherish you,",
+            "Love you,",
+            "And make you happy every single day.",
+            "Forever yours..."
+        ];
+
+        const typedTextElement = document.getElementById('typed-text');
+        const cursorElement = document.getElementById('cursor');
+        
+        let messageIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 50;
+        let pauseBetweenMessages = 2000;
+        
+        function typeWriter() {
+            const currentMessage = messages[messageIndex];
+            
+            if (isDeleting) {
+                typedTextElement.textContent = currentMessage.substring(0, charIndex - 1);
+                charIndex--;
+                typingSpeed = 30;
+            } else {
+                typedTextElement.textContent = currentMessage.substring(0, charIndex + 1);
+                charIndex++;
+                typingSpeed = charIndex % 3 === 0 ? 150 : 50;
+            }
+            
+            if (!isDeleting && charIndex === currentMessage.length) {
+                isDeleting = true;
+                typingSpeed = pauseBetweenMessages;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                messageIndex++;
+                if (messageIndex >= messages.length) messageIndex = 0;
+                typingSpeed = 100;
+            }
+            
+            setTimeout(typeWriter, typingSpeed);
+        }
+        
+        setTimeout(typeWriter, 1000);
+
+        // Countdown Timer (set to next anniversary or special date)
+        function updateCountdown() {
+            // Set your anniversary or special date here (YYYY, MM-1, DD)
+            const anniversary = new Date(new Date().getFullYear(), 7, 25); // August 25 (month is 0-indexed)
+            const today = new Date();
+            
+            // If anniversary has passed this year, set for next year
+            if (today > anniversary) {
+                anniversary.setFullYear(anniversary.getFullYear() + 1);
+            }
+            
+            const diff = anniversary - today;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Timeline Animation on Scroll
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        
+        function checkTimelineVisibility() {
+            const windowHeight = window.innerHeight;
+            const windowTop = window.scrollY;
+            const windowBottom = windowTop + windowHeight;
+            
+            timelineItems.forEach(item => {
+                const itemTop = item.offsetTop;
+                const itemBottom = itemTop + item.offsetHeight;
+                
+                if (itemBottom > windowTop && itemTop < windowBottom) {
+                    item.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkTimelineVisibility);
+        window.addEventListener('load', checkTimelineVisibility);
+
+        // Surprise Button Effect
+        const surpriseBtn = document.getElementById('surprise-btn');
+        
+        surpriseBtn.addEventListener('click', () => {
+            createHeartRain();
+            
+            // Show sweet alert
+            typedTextElement.textContent = "You are the most beautiful, amazing, wonderful person I've ever known. I'm so lucky to have you in my life!";
+            typedTextElement.style.textAlign = 'center';
+            typedTextElement.style.fontSize = '1.5rem';
+            typedTextElement.style.color = 'var(--primary-color)';
+            
+            // Reset after delay
+            setTimeout(() => {
+                typedTextElement.style.textAlign = '';
+                typedTextElement.style.fontSize = '';
+                typedTextElement.style.color = '';
+                typeWriter();
+            }, 5000);
+        });
+        
+        function createHeartRain() {
+            const heartsContainer = document.getElementById('hearts-container');
+            heartsContainer.innerHTML = '';
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.top = '100vh';
+                    heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    heart.style.opacity = Math.random() * 0.7 + 0.3;
+                    heart.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
+                    heartsContainer.appendChild(heart);
+                    
+                    // Remove heart after animation
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 5000);
+                }, i * 100);
+            }
+        }
+
+        // Music Player
+        const musicBtn = document.getElementById('music-btn');
+        const bgMusic = document.getElementById('bg-music');
+        let isPlaying = false;
+        
+        musicBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicBtn.textContent = '♪';
+            } else {
+                bgMusic.play();
+                musicBtn.textContent = '❚❚';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Dark/Light Mode Toggle
+        const modeToggle = document.getElementById('mode-toggle');
+        
+        modeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('night-mode');
+            
+            if (document.body.classList.contains('night-mode')) {
+                modeToggle.textContent = '🌙';
+            } else {
+                modeToggle.textContent = '☀️';
+            }
+        });
+
+        // Click Hearts Animation
+        document.addEventListener('click', (e) => {
+            if (e.target === surpriseBtn || e.target === musicBtn || e.target === modeToggle) return;
+            
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = e.clientX + 'px';
+            heart.style.top = e.clientY + 'px';
+            heart.style.animation = 'none';
+            
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.style.animation = 'float 2s linear forwards';
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 2000);
+            }, 10);
+        });
+
+        // Initial animations
+        createHeartRain();
+    </script>
+</body>
+</html>
+
